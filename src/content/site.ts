@@ -25,7 +25,7 @@ export interface Stat {
 
 export const STATS: Stat[] = [
   { value: 16, suffix: "", label: "AI & search sources monitored" },
-  { value: 188, suffix: "", label: "Citations analyzed" },
+  { value: 3, suffix: "K+", label: "Citations analyzed" },
   { value: 47, suffix: "%", label: "Category queries with no brand mention" },
   { value: 3, suffix: "×", label: "Competitor mentions vs. target brand" },
 ];
