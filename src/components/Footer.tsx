@@ -27,6 +27,13 @@ export function Footer() {
             Privacy
           </Link>
           <span aria-hidden="true">·</span>
+          <a
+            href="mailto:info@silkcite.io"
+            className="underline-offset-4 transition-colors hover:text-accent-strong hover:underline"
+          >
+            info@silkcite.io
+          </a>
+          <span aria-hidden="true">·</span>
           <span>© {year} SilkCite</span>
         </div>
       </div>

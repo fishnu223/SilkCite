@@ -44,10 +44,10 @@ export default function PrivacyPage() {
           <p>
             Questions about this notice? Email{" "}
             <a
-              href="mailto:privacy@silkcite.io"
+              href="mailto:info@silkcite.io"
               className="underline underline-offset-2 hover:text-accent-strong"
             >
-              privacy@silkcite.io
+              info@silkcite.io
             </a>
             .
           </p>
