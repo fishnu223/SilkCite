@@ -1,6 +1,6 @@
 import { ScheduleCallButton } from "@/components/ScheduleCallButton";
 
-export function Hero({ calendlyUrl }: { calendlyUrl: string }) {
+export function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="mx-auto max-w-6xl px-5 pb-24 pt-20 sm:px-8 sm:pb-32 sm:pt-28">
@@ -22,7 +22,7 @@ export function Hero({ calendlyUrl }: { calendlyUrl: string }) {
         </p>
 
         <div className="mt-10">
-          <ScheduleCallButton href={calendlyUrl} />
+          <ScheduleCallButton />
         </div>
       </div>
     </section>

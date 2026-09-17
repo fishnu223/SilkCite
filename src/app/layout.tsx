@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { headers } from "next/headers";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { serverEnv } from "@/lib/env";
+import { SITE_URL } from "@/lib/config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +26,7 @@ const description =
   "SilkCite measures how AI search engines discover, recommend, and represent your brand.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(serverEnv.siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "SilkCite — AI visibility intelligence",
     template: "%s · SilkCite",
@@ -60,35 +59,29 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "SilkCite",
-  url: serverEnv.siteUrl,
-  logo: `${serverEnv.siteUrl}/logo.png`,
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.png`,
   description,
-  sameAs: [],
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // Reading headers opts the layout into dynamic rendering, which is required
-  // for per-request nonce-based CSP (see src/proxy.ts).
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
-
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
     >
       <body className="flex min-h-screen flex-col bg-paper text-ink">
-        <Header calendlyUrl={serverEnv.calendlyUrl} />
+        <Header />
         <main className="flex-1">{children}</main>
         <Footer />
 
         {/* Structured data. The `<` is escaped to prevent XSS via JSON. */}
         <script
           type="application/ld+json"
-          nonce={nonce}
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
           }}

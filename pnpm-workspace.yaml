@@ -1,20 +1,8 @@
 # pnpm 12+ reads its settings from this file (not package.json).
 
 # Dependency build scripts are blocked by default; allow the ones this project
-# actually needs. Prisma runs a postinstall to install its query engine, and
-# sharp is the native image optimisation binary used by next/image.
+# actually needs. sharp is the native image optimisation binary used by
+# next/image.
 allowBuilds:
-  '@prisma/engines': true
-  prisma: true
   sharp: true
   unrs-resolver: false
-
-# Security overrides for vulnerable transitive dependencies of the Prisma CLI.
-# - mysql2: used only by Prisma's MySQL support (we use PostgreSQL); pinned to a
-#   patched 3.x so it no longer flags in `pnpm audit`.
-# - deepmerge-ts: used only by @prisma/config when merging config files; the
-#   advisory is a recursive-merge DoS that is not reachable with our static
-#   config. Pinned to the patched major.
-overrides:
-  mysql2: 3.24.4
-  deepmerge-ts: 8.0.2

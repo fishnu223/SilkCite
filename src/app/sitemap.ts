@@ -1,18 +1,18 @@
 import type { MetadataRoute } from "next";
-import { serverEnv } from "@/lib/env";
+import { SITE_URL } from "@/lib/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
   return [
     {
-      url: serverEnv.siteUrl,
+      url: SITE_URL,
       lastModified,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${serverEnv.siteUrl}/privacy`,
+      url: `${SITE_URL}/privacy`,
       lastModified,
       changeFrequency: "yearly",
       priority: 0.3,

@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
+import { CALENDLY_URL } from "@/lib/config";
 
 /**
- * The single conversion action used across the site. Renders as a plain
- * anchor (no JavaScript) that opens the environment-configured Calendly URL in
- * a new tab. `href` is resolved and validated server-side before being passed
- * in — it is never hardcoded.
+ * The single conversion action used across the site. Renders as a plain anchor
+ * (no JavaScript) that opens the environment-configured Calendly URL in a new
+ * tab. The URL is read from `NEXT_PUBLIC_CALENDLY_URL` — never hardcoded.
  */
 
 const base =
@@ -39,19 +39,20 @@ export function ArrowIcon({ className = "h-4 w-4" }: { className?: string }) {
 }
 
 export function ScheduleCallButton({
-  href,
   label = "Schedule a Call",
   variant = "primary",
   className = "",
 }: {
-  href: string;
   label?: ReactNode;
   variant?: Variant;
   className?: string;
 }) {
+  // If the Calendly URL is not configured, don't render a dead link.
+  if (!CALENDLY_URL) return null;
+
   return (
     <a
-      href={href}
+      href={CALENDLY_URL}
       target="_blank"
       rel="noopener noreferrer"
       className={`${base} ${variants[variant]} ${className}`}

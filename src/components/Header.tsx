@@ -6,7 +6,7 @@ import { ScheduleCallButton } from "@/components/ScheduleCallButton";
  * Minimal sticky header: brand mark + one conversion action. No complicated
  * navigation, per the brief.
  */
-export function Header({ calendlyUrl }: { calendlyUrl: string }) {
+export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-hairline/80 bg-paper/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
@@ -22,7 +22,7 @@ export function Header({ calendlyUrl }: { calendlyUrl: string }) {
         </Link>
 
         <nav aria-label="Primary">
-          <ScheduleCallButton href={calendlyUrl} variant="primarySm" />
+          <ScheduleCallButton variant="primarySm" />
         </nav>
       </div>
     </header>
