@@ -7,4 +7,8 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://silkcite.io"
 ).replace(/\/+$/, "");
 
-export const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "";
+// Public Calendly booking page. The env var can override the default, so the
+// button always renders even if NEXT_PUBLIC_CALENDLY_URL isn't set.
+export const CALENDLY_URL =
+  process.env.NEXT_PUBLIC_CALENDLY_URL ??
+  "https://calendly.com/vishnu-silkcite/30min";

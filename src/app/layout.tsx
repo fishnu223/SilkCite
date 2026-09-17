@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "See how Chinese AI discovers, recommends, and represents your brand across DeepSeek, Qwen, Kimi, Doubao, and Baidu.";
+  "See how Chinese AI discovers, recommends, and represents your brand across DeepSeek, Qwen, Kimi, Doubao, Baidu, and more.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

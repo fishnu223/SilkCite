@@ -6,12 +6,16 @@
  */
 
 export const ECOSYSTEMS = [
-  { name: "DeepSeek", tagline: "AI search & answers" },
-  { name: "Qwen", tagline: "Alibaba AI ecosystem" },
-  { name: "Kimi", tagline: "AI search & answers" },
-  { name: "Doubao", tagline: "ByteDance AI assistant" },
-  { name: "Baidu", tagline: "Chinese search & AI ecosystem" },
+  { name: "DeepSeek", tagline: "AI search & answers", logo: "deepseek.webp" },
+  { name: "Qwen", tagline: "Alibaba AI ecosystem", logo: "qwen.webp" },
+  { name: "Kimi", tagline: "AI search & answers", logo: "kimi.webp" },
+  { name: "Doubao", tagline: "ByteDance AI assistant", logo: "doubao.webp" },
+  { name: "Baidu", tagline: "Chinese search & AI ecosystem", logo: "baidu.webp" },
 ] as const;
+
+/** Total AI & search sources SilkCite measures, and the ones beyond the five above. */
+export const TOTAL_SOURCES = 16;
+export const MORE_SOURCES = TOTAL_SOURCES - ECOSYSTEMS.length;
 
 export interface Stat {
   value: number;
@@ -20,7 +24,7 @@ export interface Stat {
 }
 
 export const STATS: Stat[] = [
-  { value: 5, suffix: "", label: "Chinese AI ecosystems monitored" },
+  { value: 16, suffix: "", label: "AI & search sources monitored" },
   { value: 188, suffix: "", label: "Citations analyzed" },
   { value: 47, suffix: "%", label: "Category queries with no brand mention" },
   { value: 3, suffix: "×", label: "Competitor mentions vs. target brand" },

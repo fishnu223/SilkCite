@@ -22,7 +22,7 @@ export function Hero() {
             </p>
 
             <p className="mt-5 font-mono text-sm tracking-wide text-faint">
-              DeepSeek · Qwen · Kimi · Doubao · Baidu
+              DeepSeek · Qwen · Kimi · Doubao · Baidu · +11 more
             </p>
 
             <div className="mt-9">

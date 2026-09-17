@@ -47,9 +47,6 @@ export function ScheduleCallButton({
   variant?: Variant;
   className?: string;
 }) {
-  // If the Calendly URL is not configured, don't render a dead link.
-  if (!CALENDLY_URL) return null;
-
   return (
     <a
       href={CALENDLY_URL}
