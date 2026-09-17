@@ -1,43 +1,41 @@
-import { MetricCard } from "@/components/MetricCard";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { SampleBadge } from "@/components/SampleBadge";
-import { ShareChart } from "@/components/ShareChart";
-import { CORE_METRICS, SHARE_CHART } from "@/content/metrics";
+import { STATS } from "@/content/site";
 
-/**
- * The visual centerpiece: six core AI-visibility metrics plus a comparative
- * share chart. Every figure is explicitly labelled as sample data.
- */
 export function StatsSection() {
   return (
     <section
-      id="stats"
-      className="border-t border-hairline bg-surface/60"
+      className="border-t border-hairline bg-surface/50"
       aria-labelledby="stats-heading"
     >
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-        <h2
-          id="stats-heading"
-          className="display-tight max-w-3xl text-3xl font-medium text-ink sm:text-4xl md:text-5xl"
-        >
-          The six signals that decide AI visibility.
+        <h2 id="stats-heading" className="sr-only">
+          AI visibility at a glance
         </h2>
 
-        <div className="mt-6 flex flex-wrap items-center gap-4">
-          <SampleBadge />
-          <p className="text-sm text-faint">
-            Illustrative figures, not a live dataset.
-          </p>
-        </div>
+        <SampleBadge label="Illustrative SilkCite Analysis" />
 
-        <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {CORE_METRICS.map((metric) => (
-            <MetricCard key={metric.id} metric={metric} />
+        <dl className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-hairline bg-hairline lg:grid-cols-4">
+          {STATS.map((stat) => (
+            <div key={stat.label} className="bg-surface p-7 sm:p-9">
+              <dd className="font-mono text-5xl font-semibold tracking-tight text-ink sm:text-6xl">
+                <AnimatedCounter
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  decimals={0}
+                />
+              </dd>
+              <dt className="mt-3 text-sm leading-snug text-muted">
+                {stat.label}
+              </dt>
+            </div>
           ))}
-        </div>
+        </dl>
 
-        <div className="mt-16">
-          <ShareChart title={SHARE_CHART.title} bars={SHARE_CHART.bars} />
-        </div>
+        <p className="mt-4 max-w-2xl font-mono text-xs leading-relaxed text-faint">
+          Example data shown for demonstration purposes. Actual results vary by
+          brand, category, query, market, and AI system.
+        </p>
       </div>
     </section>
   );

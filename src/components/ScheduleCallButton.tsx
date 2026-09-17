@@ -39,7 +39,7 @@ export function ArrowIcon({ className = "h-4 w-4" }: { className?: string }) {
 }
 
 export function ScheduleCallButton({
-  label = "Schedule a Call",
+  label = "Book a Consultation",
   variant = "primary",
   className = "",
 }: {

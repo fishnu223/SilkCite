@@ -24,7 +24,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className="mb-3 text-base font-medium text-ink">Scheduling a call</h2>
           <p>
-            The “Schedule a Call” button opens Calendly, a third-party scheduling
+            The “Book a Consultation” button opens Calendly, a third-party scheduling
             service. When you book through Calendly, the information you submit
             there is processed by Calendly according to{" "}
             <a

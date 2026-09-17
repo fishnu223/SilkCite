@@ -1,30 +1,35 @@
 @import "tailwindcss";
 
 /*
-  SilkCite design system.
-  A warm, near-monochrome paper/ink palette with a single coral-red accent
-  drawn from the brand mark. Restrained, editorial, data-driven.
+  SilkCite design system — "Chinese AI Visibility Intelligence".
+  Warm paper/ink neutrals with the coral brand accent, cool slate for data,
+  glass surfaces, soft shadows, and a restrained grid. Global, not stereotyped.
 */
 @theme {
-  --color-ink: #1a1715;
-  --color-paper: #faf8f6;
+  --color-ink: #0f1116;
+  --color-paper: #f7f7f4;
   --color-surface: #ffffff;
-  --color-hairline: #eae6e0;
-  --color-muted: #6e6a66;
-  --color-faint: #9b958e;
+  --color-hairline: #e8e7e2;
+  --color-muted: #5c6068;
+  --color-faint: #8b8f98;
 
   /* Brand accent (from the logo) */
   --color-accent: #e26969;
   --color-accent-deep: #d85b5b;
   --color-accent-strong: #c04f4e;
-  --color-accent-soft: #f7e6e4;
+  --color-accent-soft: #f8e7e5;
 
-  /* Neutral tone used for competitor bars */
-  --color-competitor: #d9d5cf;
+  /* Cool neutrals for data / AI surfaces */
+  --color-slate: #cbd0d8;
+  --color-slate-soft: #eef0f4;
+  --color-deepseek: #4d6bfe;
 
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
-  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  /* TT Norms Pro is the intended brand face (licensed). Until its files are
+     self-hosted, the site falls back to Inter — a near geometric match. */
+  --font-sans: "TT Norms Pro", var(--font-inter), ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono",
+    "JetBrains Mono", monospace;
 }
 
 :root {
@@ -44,23 +49,61 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Tighter, more editorial display type. */
 .display-tight {
-  letter-spacing: -0.035em;
-  line-height: 1.02;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 
-/* Visible, brand-colored focus states for keyboard users. */
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-/* Respect reduced-motion preferences globally. */
+/* Liquid glass surface */
+.glass {
+  background: color-mix(in srgb, var(--color-surface) 62%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid color-mix(in srgb, var(--color-surface) 72%, transparent);
+}
+
+/* Soft premium shadows */
+.shadow-soft {
+  box-shadow: 0 1px 2px rgba(15, 17, 22, 0.04), 0 10px 30px -12px rgba(15, 17, 22, 0.1);
+}
+.shadow-lift {
+  box-shadow: 0 2px 6px rgba(15, 17, 22, 0.05), 0 30px 64px -28px rgba(15, 17, 22, 0.22);
+}
+
+/* Subtle blueprint grid */
+.bg-grid {
+  background-image: linear-gradient(to right, rgba(15, 17, 22, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 17, 22, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Hero entrance */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .animate-fade-up {
+    animation: none;
   }
   *,
   *::before,

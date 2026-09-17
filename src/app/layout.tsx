@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { SITE_URL } from "@/lib/config";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -15,20 +15,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  weight: "400",
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-});
-
 const description =
-  "SilkCite measures how AI search engines discover, recommend, and represent your brand.";
+  "See how Chinese AI discovers, recommends, and represents your brand across DeepSeek, Qwen, Kimi, Doubao, and Baidu.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "SilkCite — AI visibility intelligence",
+    default: "SilkCite — Chinese AI Visibility Intelligence",
     template: "%s · SilkCite",
   },
   description,
@@ -37,13 +30,13 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     siteName: "SilkCite",
-    title: "SilkCite — AI visibility intelligence",
+    title: "SilkCite — Chinese AI Visibility Intelligence",
     description,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SilkCite — AI visibility intelligence",
+    title: "SilkCite — Chinese AI Visibility Intelligence",
     description,
   },
 };
@@ -70,10 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
-    >
+    <html lang="en" className={`${inter.variable} ${geistMono.variable}`}>
       <body className="flex min-h-screen flex-col bg-paper text-ink">
         <Header />
         <main className="flex-1">{children}</main>

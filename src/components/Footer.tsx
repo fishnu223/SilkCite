@@ -9,14 +9,13 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-14 sm:px-8 md:flex-row md:items-start md:justify-between">
         <div className="flex items-center gap-2.5">
           <BrandMark />
-          <span className="font-serif text-xl leading-none tracking-tight">
+          <span className="text-xl font-semibold leading-none tracking-tight">
             SilkCite
           </span>
         </div>
 
         <p className="max-w-sm text-sm leading-relaxed text-muted">
-          AI visibility intelligence. We measure how AI search engines discover,
-          recommend, and represent your brand.
+          Chinese AI visibility intelligence for international brands.
         </p>
 
         <div className="flex items-center gap-6 text-sm text-muted">
