@@ -1,0 +1,34 @@
+// SilkCite database schema.
+//
+// Prisma 7 keeps the datasource connection string OUT of this file: it is read
+// from `prisma7.config.ts` (CLI) and from `src/lib/prisma.ts` (runtime, via the
+// pg driver adapter). Never put credentials in this file.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// A voluntarily submitted, qualified lead.
+///
+/// The public website collects the absolute minimum needed to reply. Column
+/// widths are bounded in the database as defence in depth on top of the Zod
+/// validation that runs in the API route.
+model Lead {
+  id String @id @default(uuid()) @db.Uuid
+
+  name    String @db.VarChar(120)
+  email   String @unique @db.VarChar(254)
+  company String @db.VarChar(160)
+  website String @db.VarChar(300)
+
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+
+  // Supports the "newest first" ordering used by any future admin view.
+  @@index([createdAt])
+}

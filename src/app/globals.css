@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/*
+  SilkCite design system.
+  A warm, near-monochrome paper/ink palette with a single coral-red accent
+  drawn from the brand mark. Restrained, editorial, data-driven.
+*/
+@theme {
+  --color-ink: #1a1715;
+  --color-paper: #faf8f6;
+  --color-surface: #ffffff;
+  --color-hairline: #eae6e0;
+  --color-muted: #6e6a66;
+  --color-faint: #9b958e;
+
+  /* Brand accent (from the logo) */
+  --color-accent: #e26969;
+  --color-accent-deep: #d85b5b;
+  --color-accent-strong: #c04f4e;
+  --color-accent-soft: #f7e6e4;
+
+  /* Neutral tone used for competitor bars */
+  --color-competitor: #d9d5cf;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tighter, more editorial display type. */
+.display-tight {
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+/* Visible, brand-colored focus states for keyboard users. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Respect reduced-motion preferences globally. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
