@@ -20,22 +20,7 @@ export function Header() {
           </span>
         </Link>
 
-        <nav
-          aria-label="Primary"
-          className="flex items-center gap-6 sm:gap-8"
-        >
-          <a
-            href="#ecosystems"
-            className="hidden text-sm text-muted transition-colors hover:text-ink sm:block"
-          >
-            Chinese AI
-          </a>
-          <a
-            href="#how-it-works"
-            className="hidden text-sm text-muted transition-colors hover:text-ink sm:block"
-          >
-            How It Works
-          </a>
+        <nav aria-label="Primary" className="flex items-center">
           <ScheduleCallButton variant="primarySm" />
         </nav>
       </div>
